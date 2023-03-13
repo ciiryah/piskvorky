@@ -14,7 +14,7 @@ body {
   
 }
 
-.obsah {
+.content {
   width: 30%;
   margin: auto;
   color: white;
@@ -22,13 +22,13 @@ body {
   border-radius: 5px;
 }
 
-.uvodni {
+.header {
   display: block;
   width: 100%;
   border-radius: 5px 5px 0px 0px;
 }
 
-.popis {
+.description {
   margin: auto;
   text-align: center;
 }
