@@ -15,17 +15,17 @@ body {
 }
 
 .content {
-  width: 30%;
+  width: 420px;
   margin: auto;
   color: white;
   background: #283e50;
   border-radius: 5px;
+  overflow: hidden;
 }
 
 .header {
   display: block;
   width: 100%;
-  border-radius: 5px 5px 0px 0px;
 }
 
 .description {
@@ -35,7 +35,7 @@ body {
 
 h1 {
   font-family: 'Lobster', sans-serif;
-  font-size: 40px;
+  font-size: 2.5rem;
   margin-top: 30px;
 }
 
@@ -66,9 +66,9 @@ p {
 
 .button--blue {
   background-color: #0197f6;
-  border-radius: 0px 0px 5px 5px;
 }
 
 .button--blue:hover {
   background-color: #0090e9;
 }
+
