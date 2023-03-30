@@ -11,7 +11,7 @@ html {
 body {
   background-image: linear-gradient(#615dad, #ffc8da);
   background-attachment: fixed;
-  
+
 }
 
 .content {
@@ -37,9 +37,10 @@ h1 {
   font-family: 'Lobster', sans-serif;
   font-size: 2.5rem;
   margin-top: 30px;
+  text-align: center;
 }
 
-p {
+.gamedescription {
   padding: 10px 20px;
   margin-top: 0;
   font-family: Arial, Helvetica, sans-serif;
@@ -72,3 +73,72 @@ p {
   background-color: #0090e9;
 }
 
+
+/* HRA */
+
+.content--game {
+  max-width: 80vmin;
+  margin: auto;
+  text-align: center;
+  color: white;
+}
+
+.info {
+  display: flex;
+  justify-content: space-between;
+}
+
+.player {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.playing {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1.1rem;
+  text-transform: uppercase;
+  font-weight: 800;
+}
+
+.button--circle {
+  border: 2px solid white;
+  background-color: rgba(255, 255, 255, 0);
+  border-radius: 50%;
+  margin: auto;
+  margin-left: 10px;
+  aspect-ratio: 1 / 1;
+
+}
+
+.buttons {
+  display: flex;
+}
+
+.button--game {
+  border-radius: 5px;
+  border: none;
+  padding: 5px;
+  margin: auto;
+  margin-right: 5px;
+}
+
+.grid {
+  display: flex;
+  flex-wrap: wrap;
+  text-align: center;
+  width: 80vmin;
+  border: 1px solid #283e50;
+  aspect-ratio: 1 / 1;
+}
+
+.button--grid {
+  flex-basis: 10%;
+  background-color: rgba(255, 255, 255, 0.3);
+  border: 1.5px solid #283e50;
+  display: block;
+  aspect-ratio: 1 / 1;
+}
+
+.button--grid:hover {
+  background-color: rgba(255, 255, 255, 0.5);
+}
