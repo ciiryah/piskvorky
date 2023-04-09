@@ -11,6 +11,7 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="style.css" />
+    <script src="hra.js" type="module"></script>
     <title>Hra</title>
   </head>
   <body>
@@ -18,8 +19,7 @@
       <h1>Piškvorky</h1>
       <div class="info">
         <div class="player">
-          <p class="playing">hraje:</p>
-          <button class="button--circle"></button>
+          <p id="playing" class="playing circle">hraje:</p>
         </div>
         <div class="buttons">
           <a href="index.html" class="button--green button--game"
@@ -30,7 +30,7 @@
           </a>
         </div>
       </div>
-      <div class="grid">
+      <div id="grid" class="grid">
         <button class="button--grid"></button>
         <button class="button--grid"></button>
         <button class="button--grid"></button>

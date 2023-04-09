@@ -100,14 +100,32 @@ h1 {
   font-weight: 800;
 }
 
-.button--circle {
-  border: 2px solid white;
-  background-color: rgba(255, 255, 255, 0);
-  border-radius: 50%;
-  margin: auto;
-  margin-left: 10px;
-  aspect-ratio: 1 / 1;
+.cross,
+.circle {
+  position: relative;
+}
 
+.cross::after {
+  position: absolute;
+  content: "\00d7";
+  color: white;
+  left: 75px;
+  top: -20px;
+  font-size: 50px;
+  font-weight: 100;
+}
+
+
+.circle::after {
+  position: absolute;
+  content: "";
+  width: 25px;
+  aspect-ratio: 1 / 1;
+  border: 4px solid white;
+  border-radius: 50%;
+  color: white;
+  left: 80px;
+  top: -4px;
 }
 
 .buttons {
@@ -141,4 +159,20 @@ h1 {
 
 .button--grid:hover {
   background-color: rgba(255, 255, 255, 0.5);
+}
+
+/*Piškvorky 3*/
+
+.board__field--circle {
+  background-image: url("img/circle.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 70%;
+}
+
+.board__field--cross {
+  background-image: url("img/cross.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 70%;
 }
