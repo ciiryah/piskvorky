@@ -1,3 +1,5 @@
+import { findWinner } from 'https://unpkg.com/piskvorky@0.1.4';
+
 let currentPlayer = 'circle';
 
 const playerIconElm = document.querySelector('#playing');
@@ -9,53 +11,67 @@ const tick = (evt) => {
     currentPlayer = 'cross';
     playerIconElm.classList.remove('circle');
     playerIconElm.classList.add('cross');
-    console.log(currentPlayer);
+    //
+    const buttonMapping = Array.from(gridButtons).map((button) => {
+      if (button.classList.contains('board__field--cross')) {
+        return 'x';
+      } else if (button.classList.contains('board__field--circle')) {
+        return 'o';
+      } else {
+        return '_';
+      }
+    });
+    //
+    const winner = findWinner(buttonMapping);
+    if (winner === 'o') {
+      setTimeout(() => {
+        alert('vyhrálo kolečko');
+      }, 100);
+    } else if (winner === 'x') {
+      setTimeout(() => {
+        alert('vyhrál křížek');
+      }, 100);
+    } else if (winner === 'tie') {
+      setTimeout(() => {
+        alert('hra skončila nerozhodně');
+      }, 100);
+    }
   } else {
     evt.target.classList.add('board__field--cross');
     evt.target.disabled = true;
     currentPlayer = 'circle';
     playerIconElm.classList.remove('cross');
     playerIconElm.classList.add('circle');
-    console.log(currentPlayer);
+    //
+    const buttonMapping = Array.from(gridButtons).map((button) => {
+      if (button.classList.contains('board__field--cross')) {
+        return 'x';
+      } else if (button.classList.contains('board__field--circle')) {
+        return 'o';
+      } else {
+        return '_';
+      }
+    });
+    //
+    const winner = findWinner(buttonMapping);
+    if (winner === 'o') {
+      setTimeout(() => {
+        alert('vyhrálo kolečko');
+      }, 100);
+    } else if (winner === 'x') {
+      setTimeout(() => {
+        alert('vyhrál křížek');
+      }, 100);
+    } else if (winner === 'tie') {
+      setTimeout(() => {
+        alert('hra skončila nerozhodně');
+      }, 100);
+    }
   }
 };
 
-document
-  .querySelector('#grid button:nth-child(1)')
-  .addEventListener('click', tick);
+const gridButtons = document.querySelectorAll('#grid button');
 
-document
-  .querySelector('#grid button:nth-child(2)')
-  .addEventListener('click', tick);
-
-document
-  .querySelector('#grid button:nth-child(3)')
-  .addEventListener('click', tick);
-
-document
-  .querySelector('#grid button:nth-child(4)')
-  .addEventListener('click', tick);
-
-document
-  .querySelector('#grid button:nth-child(5)')
-  .addEventListener('click', tick);
-
-document
-  .querySelector('#grid button:nth-child(6)')
-  .addEventListener('click', tick);
-
-document
-  .querySelector('#grid button:nth-child(7)')
-  .addEventListener('click', tick);
-
-document
-  .querySelector('#grid button:nth-child(8)')
-  .addEventListener('click', tick);
-
-document
-  .querySelector('#grid button:nth-child(9)')
-  .addEventListener('click', tick);
-
-document
-  .querySelector('#grid button:nth-child(10)')
-  .addEventListener('click', tick);
+gridButtons.forEach((button) => {
+  button.addEventListener('click', tick);
+});
