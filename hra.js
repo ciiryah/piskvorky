@@ -6,12 +6,6 @@ const playerIconElm = document.querySelector('#playing');
 
 const tick = (evt) => {
   if (currentPlayer === 'circle') {
-    evt.target.classList.add('board__field--circle');
-    evt.target.disabled = true;
-    currentPlayer = 'cross';
-    playerIconElm.classList.remove('circle');
-    playerIconElm.classList.add('cross');
-    //
     const buttonMapping = Array.from(gridButtons).map((button) => {
       if (button.classList.contains('board__field--cross')) {
         return 'x';
@@ -36,13 +30,37 @@ const tick = (evt) => {
         alert('hra skončila nerozhodně');
       }, 100);
     }
+
+    //
+    fetch(`https://piskvorky.czechitas-podklady.cz/api/suggest-next-move`, {
+      method: 'PATCH',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        board: buttonMapping,
+        player: 'x',
+      }),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        const { x, y } = data.position;
+        const index = gridButtons[x + y * 3];
+        index.click();
+      });
+    //
+    evt.target.classList.add('board__field--circle');
+    evt.target.disabled = true;
+    currentPlayer = 'cross';
+    playerIconElm.classList.remove('circle');
+    playerIconElm.classList.add('cross');
   } else {
     evt.target.classList.add('board__field--cross');
     evt.target.disabled = true;
     currentPlayer = 'circle';
     playerIconElm.classList.remove('cross');
     playerIconElm.classList.add('circle');
-    //
+
     const buttonMapping = Array.from(gridButtons).map((button) => {
       if (button.classList.contains('board__field--cross')) {
         return 'x';
