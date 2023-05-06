@@ -45,7 +45,7 @@ const tick = (evt) => {
       .then((response) => response.json())
       .then((data) => {
         const { x, y } = data.position;
-        const index = gridButtons[x + y * 3];
+        const index = gridButtons[x + y * 10];
         index.click();
       });
     //
