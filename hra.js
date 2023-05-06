@@ -38,7 +38,7 @@ const tick = (evt) => {
     playerIconElm.classList.add('cross');
     //
     fetch(`https://piskvorky.czechitas-podklady.cz/api/suggest-next-move`, {
-      method: 'PATCH',
+      method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
