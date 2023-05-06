@@ -6,6 +6,8 @@ const playerIconElm = document.querySelector('#playing');
 
 const tick = (evt) => {
   if (currentPlayer === 'circle') {
+    evt.target.classList.add('board__field--circle');
+    evt.target.disabled = true;
     const buttonMapping = Array.from(gridButtons).map((button) => {
       if (button.classList.contains('board__field--cross')) {
         return 'x';
@@ -31,6 +33,9 @@ const tick = (evt) => {
       }, 100);
     }
 
+    currentPlayer = 'cross';
+    playerIconElm.classList.remove('circle');
+    playerIconElm.classList.add('cross');
     //
     fetch(`https://piskvorky.czechitas-podklady.cz/api/suggest-next-move`, {
       method: 'PATCH',
@@ -49,17 +54,9 @@ const tick = (evt) => {
         index.click();
       });
     //
-    evt.target.classList.add('board__field--circle');
-    evt.target.disabled = true;
-    currentPlayer = 'cross';
-    playerIconElm.classList.remove('circle');
-    playerIconElm.classList.add('cross');
   } else {
     evt.target.classList.add('board__field--cross');
     evt.target.disabled = true;
-    currentPlayer = 'circle';
-    playerIconElm.classList.remove('cross');
-    playerIconElm.classList.add('circle');
 
     const buttonMapping = Array.from(gridButtons).map((button) => {
       if (button.classList.contains('board__field--cross')) {
@@ -85,6 +82,9 @@ const tick = (evt) => {
         alert('hra skončila nerozhodně');
       }, 100);
     }
+    currentPlayer = 'circle';
+    playerIconElm.classList.remove('cross');
+    playerIconElm.classList.add('circle');
   }
 };
 
